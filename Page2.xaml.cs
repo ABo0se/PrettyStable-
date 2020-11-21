@@ -35,5 +35,10 @@ namespace Primecanva
             Page1 p1 = new Page1();
             this.NavigationService.Navigate(p1);
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
