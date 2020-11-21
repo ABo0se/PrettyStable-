@@ -23,11 +23,14 @@ namespace Primecanva
         public MainWindow()
         {
             InitializeComponent();
+            Page1 p1 = new Page1();
+            Framie.Navigate(p1);
         }
 
         private void Frame_Navigated(object sender, NavigationEventArgs e)
         {
 
         }
+
     }
 }

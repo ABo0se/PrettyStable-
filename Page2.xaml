@@ -11,9 +11,9 @@
     <Grid>
         <Canvas HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="800" Background="White">
             <Label Content="History" Canvas.Left="10" Canvas.Top="10" Height="42" Width="111" FontSize="25"/>
-            <TextBox Height="466" Canvas.Left="13" TextWrapping="Wrap" Text="" Canvas.Top="57" Width="774" TextChanged="TextBox_TextChanged" FontSize="25"/>
-            <Button Content="Clear history" Canvas.Left="21" Canvas.Top="540" Width="159" Height="40" FontSize="20" Click="Button_Click"/>
-            <Button Content="Back" Canvas.Left="200" Canvas.Top="540" Width="103" Height="40" FontSize="20" Click="Button_Click"/>
+            <Button Content="Back" Canvas.Left="234" Canvas.Top="502" Width="100" Height="36" FontSize="20" Click="GoPageone"/>
+            <Button Content="Clear history" Canvas.Left="21" Canvas.Top="502" Width="193" Height="36" FontSize="20" Click="Button_Click"/>
+            <TextBox Height="427" Canvas.Left="21" TextWrapping="Wrap" Canvas.Top="56" Width="735" FontSize="20"/>
         </Canvas>
 
     </Grid>

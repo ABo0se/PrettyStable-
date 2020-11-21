@@ -29,5 +29,11 @@ namespace Primecanva
         {
 
         }
+
+        private void GoPage2(object sender, RoutedEventArgs e)
+        {
+            Page2 p2 = new Page2();
+            this.NavigationService.Navigate(p2);
+        }
     }
 }
