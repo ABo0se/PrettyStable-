@@ -14,6 +14,7 @@
             <Button Content="Back" Canvas.Left="234" Canvas.Top="502" Width="100" Height="36" FontSize="20" Click="GoPageone"/>
             <Button Content="Clear history" Canvas.Left="21" Canvas.Top="502" Width="193" Height="36" FontSize="20" Click="Button_Click"/>
             <TextBox Height="427" Canvas.Left="21" TextWrapping="Wrap" Canvas.Top="56" Width="735" FontSize="20" TextChanged="TextBox_TextChanged"/>
+            <Image Height="100" Canvas.Left="365" Canvas.Top="10" Width="100"/>
         </Canvas>
 
     </Grid>

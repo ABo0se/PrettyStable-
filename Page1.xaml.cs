@@ -23,8 +23,11 @@ namespace Primecanva
         double Number, Testnumber, PrimeDivider, Prime, SeperateDivider, CompositeDivider;
         int seperatearray = 0;
         int compositearray = 0;
-        double[] SeperatedNumber = new double[100];
-        double[] CompositeNumber = new double[1000];
+        double[] SeperatedNumber = new double[20];
+        List<double> SeperatedNumberList = new List<double>();
+        List<double> CompositeNumberList = new List<double>();
+        double[] CompositeNumber = new double[100];
+        string SeperatedNumberOutput, CompositeNumberOutput;
 
 
         public Page1()
@@ -70,6 +73,7 @@ namespace Primecanva
             }
             FindSeperateResult();
             FindCompositeResult();
+            WriteResult();
         }
         public void FindSeperateResult()
         {
@@ -79,15 +83,16 @@ namespace Primecanva
             {
                 if ((Testnumber % SeperateDivider) == 0)
                 {
-                    SeperatedNumber[seperatearray] = SeperateDivider;
-                    seperatearray++;
+                    //SeperatedNumber[seperatearray] = SeperateDivider;
+                    //seperatearray++;
+                    SeperatedNumberList.Add(SeperateDivider);
                     Testnumber = Testnumber / SeperateDivider;
                     SeperateDivider = 2;
                 }
                 else
                     SeperateDivider++;
             }
-            Array.Sort(SeperatedNumber);
+            //Array.Sort(SeperatedNumber);
             //Incomplete
         }
         public void FindCompositeResult()
@@ -97,11 +102,24 @@ namespace Primecanva
             {
                 if ((Number % CompositeDivider) == 0)
                 {
-                    CompositeNumber[compositearray] = CompositeDivider;
+                    CompositeNumberList.Add(CompositeDivider);
+                    //CompositeNumber[compositearray] = CompositeDivider;
+                    //compositearray++;
                 }
-                compositearray++;
+                CompositeDivider++;
             }
-            Array.Sort(CompositeNumber);
+            //Array.Sort(CompositeNumber);
+        }
+        public void WriteResult()
+        {
+            if (Prime == 0)
+                Result.Content = "Composite Number";
+            else if (Prime == 1)
+                Result.Content = "Prime Number";
+            //SeperatedNumberOutput = String.Join("x", SeperatedNumber.Select(x => x.ToString()).ToArray());
+            ตัวคูณร่วมทั้งหมดที่ระบุ.Text = SeperatedNumberOutput;
+            //CompositeNumberOutput = String.Join(",", CompositeNumber.Select(x => x.ToString()).ToArray());
+            ตัวประกอบที่ได้ระบุ.Text = CompositeNumberOutput;
         }
     }
 }
