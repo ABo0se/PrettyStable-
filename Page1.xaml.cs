@@ -21,10 +21,9 @@ namespace Primecanva
     public partial class Page1 : Page
     {
         double Number, Testnumber, PrimeDivider, Prime, SeperateDivider, CompositeDivider;
-        int seperatearray = 0;
-        int compositearray = 0;
-        double[] SeperatedNumber = new double[100];
-        double[] CompositeNumber = new double[1000];
+        List<double> SeperatedNumberList = new List<double>();
+        List<double> CompositeNumberList = new List<double>();
+        string SeperatedNumberOutput, CompositeNumberOutput;
 
 
         public Page1()
@@ -37,12 +36,6 @@ namespace Primecanva
 
         }
 
-        private void GoPage2(object sender, RoutedEventArgs e)
-        {
-            Page2 p2 = new Page2();
-            this.NavigationService.Navigate(p2);
-        }
-
         private void primefinder(object sender, RoutedEventArgs e)
         {
             FindPrimeResult();
@@ -50,45 +43,66 @@ namespace Primecanva
 
         private void dataclear(object sender, RoutedEventArgs e)
         {
-
+            SeperatedNumberList.Clear();
+            CompositeNumberList.Clear();
+            ตัวคูณร่วมทั้งหมดที่ระบุ.Text = "";
+            ตัวประกอบที่ระบุไว้.Text = "";
+            Result.Content = "";
+            T_Number.Text = "";
         }
         ////////////////////////////////////AnswerFinder
         public void FindPrimeResult()
         {
+            ClearInput();
             Number = double.Parse(T_Number.Text);
-            Prime = 1;
+            if (Number % 1 == 0 && Number > 0)
+            {
+                FindPrimeAnswer();
+                FindSeperateResult();
+                FindCompositeResult();
+                WriteResult();
+                Logging();
+            }
+            else
+                Result.Content = "Wrong input! Please try again.";
+        }
+        public void FindPrimeAnswer()
+        {
+            if (Number == 1)
+                Prime = 2;
+            else
+                Prime = 1;
             PrimeDivider = 2;
             while (Math.Pow(Number, 0.5) >= PrimeDivider)
             {
-                if ((Number % PrimeDivider) == 0)
                 {
-                    Prime = 0;
-                    break;
+                    if ((Number % PrimeDivider) == 0)
+                    {
+                        Prime = 0;
+                        break;
+                    }
+                    else
+                        PrimeDivider++;
                 }
-                else
-                    PrimeDivider++;
             }
-            FindSeperateResult();
-            FindCompositeResult();
         }
         public void FindSeperateResult()
         {
             Testnumber = Number;
+            if (Testnumber == 1)
+                SeperatedNumberList.Add(1);
             SeperateDivider = 2;
             while (Testnumber >= SeperateDivider)
             {
                 if ((Testnumber % SeperateDivider) == 0)
                 {
-                    SeperatedNumber[seperatearray] = SeperateDivider;
-                    seperatearray++;
+                    SeperatedNumberList.Add(SeperateDivider);
                     Testnumber = Testnumber / SeperateDivider;
                     SeperateDivider = 2;
                 }
                 else
                     SeperateDivider++;
             }
-            Array.Sort(SeperatedNumber);
-            //Incomplete
         }
         public void FindCompositeResult()
         {
@@ -97,11 +111,37 @@ namespace Primecanva
             {
                 if ((Number % CompositeDivider) == 0)
                 {
-                    CompositeNumber[compositearray] = CompositeDivider;
+                    CompositeNumberList.Add(CompositeDivider);
                 }
-                compositearray++;
+                CompositeDivider++;
             }
-            Array.Sort(CompositeNumber);
+        }
+        public void WriteResult()
+        {
+            if (Prime == 0)
+                Result.Content = "Composite Number";
+            else if (Prime == 1)
+                Result.Content = "Prime Number";
+            else if (Prime == 2)
+                Result.Content = "Can't be prime number and composite number";
+            SeperatedNumberList.Sort();
+            CompositeNumberList.Sort();
+            SeperatedNumberOutput = String.Join(" x ", SeperatedNumberList);
+            ตัวคูณร่วมทั้งหมดที่ระบุ.Text = SeperatedNumberOutput;
+            CompositeNumberOutput = String.Join(", ", CompositeNumberList);
+            ตัวประกอบที่ระบุไว้.Text = CompositeNumberOutput;
+        }
+        public void ClearInput()
+        {
+            SeperatedNumberList.Clear();
+            CompositeNumberList.Clear();
+            ตัวคูณร่วมทั้งหมดที่ระบุ.Text = "";
+            ตัวประกอบที่ระบุไว้.Text = "";
+            Result.Content = "";
+        }
+        public void Logging()
+        {
+
         }
     }
 }
