@@ -26,7 +26,6 @@
                 <TextBox x:Name="T_Number" Height="40" Canvas.Left="300" TextWrapping="Wrap" Text="" Canvas.Top="12" Width="446" TextChanged="TextBox_TextChanged" FontSize="25"/>
                 <Button x:Name="FindPrime" Content="Find" Canvas.Left="16" Canvas.Top="66" Width="100" Height="40" FontSize="20" Click="primefinder" Background="#FFD7F6F9"/>
                 <Button x:Name="cleardata" Content="Clear" Canvas.Left="126" Canvas.Top="66" Width="100" Height="40" FontSize="20" Click="dataclear" Background="#FFFADBD9"/>
-                <Button Content="History" Canvas.Left="237" Canvas.Top="66" Width="100" Height="40" FontSize="20" Click="GoPage2"/>
                 <Label Content="Result :" Canvas.Left="16" Canvas.Top="116" Height="42" Width="89" FontSize="25"/>
                 <Label x:Name="Result" Content="" Canvas.Left="110" Canvas.Top="116" Height="42" Width="666" FontSize="25"/>
                 <Label Content="ตัวคูณร่วมทั้งหมด" Canvas.Left="16" Canvas.Top="157" Height="42" Width="197" FontSize="25"/>

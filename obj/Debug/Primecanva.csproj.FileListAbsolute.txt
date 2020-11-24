@@ -15,5 +15,3 @@ D:\ไฟล์ระบบ C++\Primecanva\obj\Debug\Primecanva.csproj.GenerateR
 D:\ไฟล์ระบบ C++\Primecanva\obj\Debug\Primecanva.csproj.CoreCompileInputs.cache
 D:\ไฟล์ระบบ C++\Primecanva\obj\Debug\Primecanva.exe
 D:\ไฟล์ระบบ C++\Primecanva\obj\Debug\Primecanva.pdb
-D:\ไฟล์ระบบ C++\PrimeCanva\obj\Debug\Page2.g.cs
-D:\ไฟล์ระบบ C++\PrimeCanva\obj\Debug\Page2.baml
