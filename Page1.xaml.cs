@@ -59,8 +59,9 @@ namespace Primecanva
         ////////////////////////////////////AnswerFinder
         public void FindPrimeResult()
         {
+            ClearInput();
             Number = double.Parse(T_Number.Text);
-            if (Number % 1 == 0)
+            if (Number % 1 == 0 && Number > 0)
             {
                 FindPrimeAnswer();
                 FindSeperateResult();
@@ -73,9 +74,10 @@ namespace Primecanva
         }
         public void FindPrimeAnswer()
         {
-            SeperatedNumberList.Clear();
-            CompositeNumberList.Clear();
-            Prime = 1;
+            if (Number == 1)
+                Prime = 2;
+            else
+                Prime = 1;
             PrimeDivider = 2;
             while (Math.Pow(Number, 0.5) >= PrimeDivider)
             {
@@ -93,6 +95,8 @@ namespace Primecanva
         public void FindSeperateResult()
         {
             Testnumber = Number;
+            if (Testnumber == 1)
+                SeperatedNumberList.Add(1);
             SeperateDivider = 2;
             while (Testnumber >= SeperateDivider)
             {
@@ -124,12 +128,22 @@ namespace Primecanva
                 Result.Content = "Composite Number";
             else if (Prime == 1)
                 Result.Content = "Prime Number";
+            else if (Prime == 2)
+                Result.Content = "Can't be prime number and composite number";
             SeperatedNumberList.Sort();
             CompositeNumberList.Sort();
             SeperatedNumberOutput = String.Join(" x ", SeperatedNumberList);
             ตัวคูณร่วมทั้งหมดที่ระบุ.Text = SeperatedNumberOutput;
             CompositeNumberOutput = String.Join(", ", CompositeNumberList);
             ตัวประกอบที่ระบุไว้.Text = CompositeNumberOutput;
+        }
+        public void ClearInput()
+        {
+            SeperatedNumberList.Clear();
+            CompositeNumberList.Clear();
+            ตัวคูณร่วมทั้งหมดที่ระบุ.Text = "";
+            ตัวประกอบที่ระบุไว้.Text = "";
+            Result.Content = "";
         }
         public void Logging()
         {
