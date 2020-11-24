@@ -22,17 +22,17 @@
             <TextBox Height="149" Canvas.Left="16" TextWrapping="Wrap" Text="" Canvas.Top="214" Width="774" TextChanged="TextBox_TextChanged" FontSize="25"/>
             <Canvas HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="800" Background="White">
                 <Image Height="667" Width="800" Source="watercolor-background_87374-69.jpg"/>
-                <Label Content="Number : " Canvas.Left="10" Canvas.Top="10" Height="42" Width="111" FontSize="25"/>
-                <TextBox x:Name="T_Number" Height="39" Canvas.Left="126" TextWrapping="Wrap" Text="" Canvas.Top="13" Width="446" TextChanged="TextBox_TextChanged" FontSize="25"/>
+                <Label Content="Integer Number : " Canvas.Left="16" Canvas.Top="10" Height="42" Width="234" FontSize="25"/>
+                <TextBox x:Name="T_Number" Height="39" Canvas.Left="212" TextWrapping="Wrap" Text="" Canvas.Top="13" Width="446" TextChanged="TextBox_TextChanged" FontSize="25"/>
                 <Button x:Name="FindPrime" Content="Find" Canvas.Left="16" Canvas.Top="66" Width="100" Height="40" FontSize="20" Click="primefinder" Background="#FFD7F6F9"/>
                 <Button x:Name="cleardata" Content="Clear" Canvas.Left="126" Canvas.Top="66" Width="100" Height="40" FontSize="20" Click="dataclear" Background="#FFFADBD9"/>
                 <Button Content="History" Canvas.Left="237" Canvas.Top="66" Width="100" Height="40" FontSize="20" Click="GoPage2"/>
-                <Label Content="Prime Number ? : " Canvas.Left="16" Canvas.Top="116" Height="42" Width="197" FontSize="25"/>
-                <Label x:Name="Result" Content="" Canvas.Left="213" Canvas.Top="116" Height="42" Width="482" FontSize="25"/>
+                <Label Content="Result :" Canvas.Left="16" Canvas.Top="116" Height="42" Width="89" FontSize="25"/>
+                <Label x:Name="Result" Content="" Canvas.Left="110" Canvas.Top="116" Height="42" Width="500" FontSize="25"/>
                 <Label Content="ตัวคูณร่วมทั้งหมด" Canvas.Left="16" Canvas.Top="157" Height="42" Width="197" FontSize="25"/>
-                <TextBox x:Name="ตัวคูณร่วมทั้งหมดที่ระบุ" Height="149" Canvas.Left="16" TextWrapping="Wrap" Text="" Canvas.Top="204" Width="753" TextChanged="TextBox_TextChanged" FontSize="25"/>
-                <Label Content="ตัวประกอบที่ได้" Canvas.Left="16" Canvas.Top="359" Height="42" Width="197" FontSize="25"/>
-                <TextBox x:Name="ตัวประกอบที่ได้ระบุ" Height="138" Canvas.Left="16" TextWrapping="Wrap" Text="" Canvas.Top="406" Width="753" TextChanged="TextBox_TextChanged" FontSize="25"/>
+                <TextBox x:Name="ตัวคูณร่วมทั้งหมดที่ระบุ" Height="109" Canvas.Left="10" TextWrapping="Wrap" Text="" Canvas.Top="204" Width="766" TextChanged="TextBox_TextChanged" FontSize="25" IsReadOnly="True"/>
+                <Label Content="ตัวประกอบที่ได้" Canvas.Left="10" Canvas.Top="318" Height="42" Width="197" FontSize="25"/>
+                <TextBox x:Name="ตัวประกอบที่ระบุไว้" Height="190" Canvas.Left="10" TextWrapping="Wrap" Text="" Canvas.Top="365" Width="766" TextChanged="TextBox_TextChanged" FontSize="25" IsReadOnly="True"/>
             </Canvas>
         </Canvas>
 

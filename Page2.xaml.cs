@@ -38,7 +38,12 @@ namespace Primecanva
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            
+        }
 
+        private void DeleteLog(object sender, RoutedEventArgs e)
+        {
+            HistoryBox.Text = "";
         }
     }
 }

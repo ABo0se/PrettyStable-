@@ -12,8 +12,8 @@
         <Canvas HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="800" Background="White">
             <Label Content="History" Canvas.Left="10" Canvas.Top="10" Height="42" Width="111" FontSize="25"/>
             <Button Content="Back" Canvas.Left="234" Canvas.Top="502" Width="100" Height="36" FontSize="20" Click="GoPageone"/>
-            <Button Content="Clear history" Canvas.Left="21" Canvas.Top="502" Width="193" Height="36" FontSize="20" Click="Button_Click"/>
-            <TextBox Height="427" Canvas.Left="21" TextWrapping="Wrap" Canvas.Top="56" Width="735" FontSize="20" TextChanged="TextBox_TextChanged"/>
+            <Button x:Name="DeleteHistory" Content="Clear history" Canvas.Left="21" Canvas.Top="502" Width="193" Height="36" FontSize="20" Click="DeleteLog"/>
+            <TextBox x:Name="HistoryBox" Height="427" Canvas.Left="21" TextWrapping="Wrap" Canvas.Top="56" Width="735" FontSize="20" TextChanged="TextBox_TextChanged" IsReadOnly="True"/>
             <Image Height="100" Canvas.Left="365" Canvas.Top="10" Width="100"/>
         </Canvas>
 

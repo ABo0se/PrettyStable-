@@ -21,12 +21,8 @@ namespace Primecanva
     public partial class Page1 : Page
     {
         double Number, Testnumber, PrimeDivider, Prime, SeperateDivider, CompositeDivider;
-        int seperatearray = 0;
-        int compositearray = 0;
-        double[] SeperatedNumber = new double[20];
         List<double> SeperatedNumberList = new List<double>();
         List<double> CompositeNumberList = new List<double>();
-        double[] CompositeNumber = new double[100];
         string SeperatedNumberOutput, CompositeNumberOutput;
 
 
@@ -53,27 +49,46 @@ namespace Primecanva
 
         private void dataclear(object sender, RoutedEventArgs e)
         {
-
+            SeperatedNumberList.Clear();
+            CompositeNumberList.Clear();
+            ตัวคูณร่วมทั้งหมดที่ระบุ.Text = "";
+            ตัวประกอบที่ระบุไว้.Text = "";
+            Result.Content = "";
+            T_Number.Text = "";
         }
         ////////////////////////////////////AnswerFinder
         public void FindPrimeResult()
         {
             Number = double.Parse(T_Number.Text);
+            if (Number % 1 == 0)
+            {
+                FindPrimeAnswer();
+                FindSeperateResult();
+                FindCompositeResult();
+                WriteResult();
+                Logging();
+            }
+            else
+                Result.Content = "Wrong input! Please try again.";
+        }
+        public void FindPrimeAnswer()
+        {
+            SeperatedNumberList.Clear();
+            CompositeNumberList.Clear();
             Prime = 1;
             PrimeDivider = 2;
             while (Math.Pow(Number, 0.5) >= PrimeDivider)
             {
-                if ((Number % PrimeDivider) == 0)
                 {
-                    Prime = 0;
-                    break;
+                    if ((Number % PrimeDivider) == 0)
+                    {
+                        Prime = 0;
+                        break;
+                    }
+                    else
+                        PrimeDivider++;
                 }
-                else
-                    PrimeDivider++;
             }
-            FindSeperateResult();
-            FindCompositeResult();
-            WriteResult();
         }
         public void FindSeperateResult()
         {
@@ -83,8 +98,6 @@ namespace Primecanva
             {
                 if ((Testnumber % SeperateDivider) == 0)
                 {
-                    //SeperatedNumber[seperatearray] = SeperateDivider;
-                    //seperatearray++;
                     SeperatedNumberList.Add(SeperateDivider);
                     Testnumber = Testnumber / SeperateDivider;
                     SeperateDivider = 2;
@@ -92,8 +105,6 @@ namespace Primecanva
                 else
                     SeperateDivider++;
             }
-            //Array.Sort(SeperatedNumber);
-            //Incomplete
         }
         public void FindCompositeResult()
         {
@@ -103,12 +114,9 @@ namespace Primecanva
                 if ((Number % CompositeDivider) == 0)
                 {
                     CompositeNumberList.Add(CompositeDivider);
-                    //CompositeNumber[compositearray] = CompositeDivider;
-                    //compositearray++;
                 }
                 CompositeDivider++;
             }
-            //Array.Sort(CompositeNumber);
         }
         public void WriteResult()
         {
@@ -116,10 +124,16 @@ namespace Primecanva
                 Result.Content = "Composite Number";
             else if (Prime == 1)
                 Result.Content = "Prime Number";
-            //SeperatedNumberOutput = String.Join("x", SeperatedNumber.Select(x => x.ToString()).ToArray());
+            SeperatedNumberList.Sort();
+            CompositeNumberList.Sort();
+            SeperatedNumberOutput = String.Join(" x ", SeperatedNumberList);
             ตัวคูณร่วมทั้งหมดที่ระบุ.Text = SeperatedNumberOutput;
-            //CompositeNumberOutput = String.Join(",", CompositeNumber.Select(x => x.ToString()).ToArray());
-            ตัวประกอบที่ได้ระบุ.Text = CompositeNumberOutput;
+            CompositeNumberOutput = String.Join(", ", CompositeNumberList);
+            ตัวประกอบที่ระบุไว้.Text = CompositeNumberOutput;
+        }
+        public void Logging()
+        {
+
         }
     }
 }
