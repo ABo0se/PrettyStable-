@@ -61,7 +61,7 @@ namespace Primecanva
                 FindSeperateResult();
                 FindCompositeResult();
                 WriteResult();
-                Logging();
+
             }
             else
                 Result.Content = "Wrong input! Please try again.";
@@ -92,7 +92,7 @@ namespace Primecanva
             if (Testnumber == 1)
                 SeperatedNumberList.Add(1);
             SeperateDivider = 2;
-            while (Testnumber >= SeperateDivider)
+            while (Testnumber >= 2)
             {
                 if ((Testnumber % SeperateDivider) == 0)
                 {
@@ -138,10 +138,6 @@ namespace Primecanva
             ตัวคูณร่วมทั้งหมดที่ระบุ.Text = "";
             ตัวประกอบที่ระบุไว้.Text = "";
             Result.Content = "";
-        }
-        public void Logging()
-        {
-
         }
     }
 }
